@@ -1,0 +1,56 @@
+<html>
+<body>
+<pre>
+    #*
+    你看不到我~~~~
+    *#
+    $!{value1}
+    $!{value2} ## 如果不存在，强制为空
+    ${value3}
+
+    colors: $!{colors}
+
+    #foreach($color in $colors)
+        This is Color $!{foreach.index}: $color, $!{foreach.count}
+    #end
+
+    #foreach($key in $map.keySet())
+        Number: $key, Value: $map.get($key)
+    #end
+
+    #foreach($kv in $map.entrySet())
+        Number: $kv.key, Value: $kv.value
+    #end
+
+    User:  $!{user.name}
+    $!{user.description}
+    $!{user.getDescription()}
+
+    #set($title = "no
+    Title: $!{title}
+
+    Parse: #parse("header.html")#*Parse直接将html中的文本输出，不解析，比如此处的html中的title就直接输出title*#
+    Include: #include("header.html")#*Include会将html中的变量解析，比如此处html的title就解析成了nowcoder_title*#
+
+    #macro (render_color, $index, $color)
+        Color Render Macro $index, $color
+    #end
+
+    #foreach($color in $colors)
+        #render_color($foreach.index, $color)
+    #end
+
+    #set($hello = "hello")
+    #set($helloworld1 = "$!{hello} world")
+    $!hello
+    $helloworld1
+    #set($helloworld2 = '$!{hello} world')#*只会解析双引号，单引号直接输出*#
+    $helloworld2
+
+
+
+
+
+</pre>
+</body>
+</html>

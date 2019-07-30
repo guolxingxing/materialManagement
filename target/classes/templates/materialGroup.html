@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<pre>
+        班组编号：${username}
+     #foreach($vo in $materialGroup)
+
+        名    称：${vo.material.materialName}
+        型    号：${vo.material.materialModel}
+        用    途：${vo.material.materialUsage}
+        类    别：${vo.material.materialType}
+        仓库库存：${vo.material.stockNum} 组
+        自有库存：${vo.group_num} 组
+        更新时间：$date.format('yyyy-MM-dd HH:mm:ss', ${vo.date})
+        实物图片：${vo.material.materialImage}
+    
+    #end
+</pre>
+</body>
+</html>

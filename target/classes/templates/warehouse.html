@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<pre>
+        公司物料仓物料分布  物料所属类别：全体
+     #foreach($material in $materialList)
+    
+        名    称：${material.materialName}
+        型    号：${material.materialModel}
+        用    途：${material.materialUsage}
+        类    别：${material.materialType}
+        库    存：${material.stockNum} 组
+        更新时间：$date.format('yyyy-MM-dd HH:mm:ss', ${material.refreshDate})
+        实物图片：${material.materialImage}
+    
+    #end
+</pre>
+</body>
+</html>
